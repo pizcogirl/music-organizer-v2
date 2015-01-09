@@ -117,4 +117,19 @@ public class MusicOrganizer
             System.out.println("No se han encontrado archivos con ese nombre");
         }
     }
+    
+    /**
+     * Play the few seconds of all the files from an artist given as parameter.
+     */
+    public void playSampleOf(String artistName)
+    {
+        for (String fileName : files)
+        {
+            if (fileName.contains(artistName))
+            {
+                player.playSample(fileName);
+            }
+        }
+    }
+
 }
