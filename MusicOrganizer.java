@@ -112,7 +112,7 @@ public class MusicOrganizer
                 validName = true;
             }
         }
-        if (validName == false)
+        if (!(validName))
         {
             System.out.println("No se han encontrado archivos con ese nombre");
         }
