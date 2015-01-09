@@ -91,7 +91,8 @@ public class MusicOrganizer
         // Imprime por pantalla todos los archivos en la coleccion
         for (String file : files)
         {
-            listFile(files.indexOf(file));
+            int listPosition = files.indexOf(file);
+            System.out.println ((listPosition +1)+ ".- " +  files.get(listPosition));
         }
     }
 }
