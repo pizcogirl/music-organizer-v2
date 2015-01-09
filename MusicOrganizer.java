@@ -82,4 +82,16 @@ public class MusicOrganizer
     {
         player.stop();
     }
+    
+    /**
+     * List all filles.
+     */
+    public void listAllFilles()
+    {
+        // Imprime por pantalla todos los archivos en la coleccion
+        for (String file : files)
+        {
+            listFile(files.indexOf(file));
+        }
+    }
 }
