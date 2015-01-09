@@ -89,10 +89,26 @@ public class MusicOrganizer
     public void listAllFilles()
     {
         // Imprime por pantalla todos los archivos en la coleccion
-        for (String file : files)
+        for (String fileName : files)
         {
-            int listPosition = files.indexOf(file);
+            // Sumamos uno a la posicion para que el listado comienze por 1
+            int listPosition = files.indexOf(fileName);
             System.out.println ((listPosition +1)+ ".- " +  files.get(listPosition));
+        }
+    }
+    
+    /**
+     * List files with the String as parameter.
+     */
+    public void listMatching(String searchString)
+    {
+        // Recorre la coleccion, si coincide lo miprime por pantalla
+        for (String fileName : files)
+        {
+            if (fileName.contains(searchString))
+            {
+                System.out.println (fileName);
+            }
         }
     }
 }
