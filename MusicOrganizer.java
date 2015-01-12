@@ -143,7 +143,8 @@ public class MusicOrganizer
         int index = 0;
         boolean found = false;
         int fileIndex = -1;
-        while (!found && index < files.size())
+        int size = files.size();
+        while (!found && index < size)
         {
             String fileName = files.get(index);
             // Comprobamos si el nombre de la cancion contiene el texto, si es asi cambiamos 
