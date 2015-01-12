@@ -13,7 +13,7 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /**
      * Create a MusicOrganizer
      */
@@ -22,7 +22,7 @@ public class MusicOrganizer
         files = new ArrayList<String>();
         player = new MusicPlayer();
     }
-    
+
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
@@ -31,7 +31,7 @@ public class MusicOrganizer
     {
         files.add(filename);
     }
-    
+
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -40,7 +40,7 @@ public class MusicOrganizer
     {
         return files.size();
     }
-    
+
     /**
      * List a file from the collection.
      * @param index The index of the file to be listed.
@@ -52,7 +52,7 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
+
     /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
@@ -82,7 +82,7 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     /**
      * List all filles.
      */
@@ -96,7 +96,7 @@ public class MusicOrganizer
             System.out.println ((listPosition +1)+ ".- " +  files.get(listPosition));
         }
     }
-    
+
     /**
      * List files with the String as parameter.
      */
@@ -117,7 +117,7 @@ public class MusicOrganizer
             System.out.println("No se han encontrado archivos con ese nombre");
         }
     }
-    
+
     /**
      * Play the few seconds of all the files from an artist given as parameter.
      */
@@ -130,6 +130,32 @@ public class MusicOrganizer
                 player.playSample(fileName);
             }
         }
+    }
+
+    /**
+     * Return the index of the first file containing the given string as parameter.
+     */
+    public int findFirst(String searchString)
+    {
+        // Creamos un contador para el while, el boolean de la condicion y un entero para guardar el indice a devolver
+        // inicializamos a los valores necesarios. fileIndex inicializa a -1, porque si no encuentra ningun archivo 
+        // debe devolver ese valor
+        int index = 0;
+        boolean found = false;
+        int fileIndex = -1;
+        while (!found && index < files.size())
+        {
+            String fileName = files.get(index);
+            // Comprobamos si el nombre de la cancion contiene el texto, si es asi cambiamos 
+            // el valor del booleano y del indice que debe mostrar
+            if (fileName.contains(searchString))
+            {
+                found = true;
+                fileIndex = index;
+            }
+            index = index + 1;
+        }
+        return fileIndex;
     }
 
 }
